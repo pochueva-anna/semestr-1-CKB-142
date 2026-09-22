@@ -42,6 +42,6 @@ double GetValue()
 
 double ChangeOfTemperature(const double m, const double q)
 {
-    double c = 460;
+    const double c = 460;
     return(q / (c * m * 0.001));
 }
