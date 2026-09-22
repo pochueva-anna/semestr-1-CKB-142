@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define scanf scanf_s
 
 /*
 * @brief считывает введённое значение и проверяет его на корректность
@@ -60,7 +59,7 @@ int main()
 double GetValue()
 {
 	double value = 0;
-	if (!scanf("%lf", &value))
+	if (scanf("%lf", &value) != 1)
 	{
 		printf("Error: incorrect type");
 		exit(1);
