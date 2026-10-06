@@ -15,6 +15,11 @@ double getDouble();
  */
 double y(const double x);
 
+/**
+ * @brief точка входа в программму
+ * @return возвращает 0, если программа выполнена корректно
+ */
+
 int main()
 {
     printf("Enter x: \n");
@@ -37,21 +42,19 @@ double getDouble()
 double y(const double x)
 {
 	const double a = 1.65;
+    if (abs(x - 1.34) < DBL_EPSILON)
+        {
+            return log(x + 7 * sqrt(x + a));
+        }
     if (x < 1.34)
         {
             return M_PI * pow(x, 2) - 7 / (pow(x, 2));
         }
-    if (x > 1.4)
+    if (x > 1.34)
         {
             return log(x + 7 * sqrt(x + a));
         }
-    if ((x - 1.4) < DBL_EPSILON)
-        {
-            return log(x + 7 * sqrt(x + a));
-        }
-    else
-        {
-            return 777777;
-        }
+    
+ 
 
 }
