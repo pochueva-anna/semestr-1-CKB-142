@@ -40,6 +40,13 @@ double ProductOfNumbers(const double a, const double b);
 */
 double QuotientOfNumbers(const double a, const double b);
 
+enum Operations {
+    Sum,
+    Difference, 
+    Product, 
+    Quotient, 
+}
+
 /*
 * @brief точка входа в программу
 * @return возвращает 0, если программа выполненна корректно
@@ -48,11 +55,21 @@ int main()
 {
 	double a = GetValue();
 	double b = GetValue();
-	printf("a + b = %.2lf\n", SumOfNumbers(a, b));
-	printf("a - b = %.2lf\n", DifferenceOfNumbers(a, b));
-    printf("a * b = %.2lf\n", ProductOfNumbers(a, b));
-    printf("a / b = %.2lf\n", QuotientOfNumbers(a, b));
-    printf("b / a = %.2lf", QuotientOfNumbers(b, a));
+    enum Operations num = GetInt();
+    switch (num) {
+        case 1:
+        printf("a + b = %.2lf\n", SumOfNumbers(a, b));
+        break;
+        case 2:
+        printf("a - b = %.2lf\n", DifferenceOfNumbers(a, b));
+        break;
+        case 3:
+        printf("a * b = %.2lf\n", ProductOfNumbers(a, b));
+        break;
+        case 4:
+        printf("b / a = %.2lf", QuotientOfNumbers(b, a));
+        break;
+    }
 	return 0;
 }
 
