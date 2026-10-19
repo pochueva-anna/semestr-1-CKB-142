@@ -40,12 +40,19 @@ double ProductOfNumbers(const double a, const double b);
 */
 double QuotientOfNumbers(const double a, const double b);
 
+void CheckOpiration();
+
+double getInt();
+
 enum Operations {
-    Sum,
-    Difference, 
-    Product, 
-    Quotient, 
-}
+    Sum = 1,
+    Difference = 2, 
+    Product = 3, 
+    QuotientA = 4, 
+    QuotientB = 5
+};
+
+
 
 /*
 * @brief точка входа в программу
@@ -53,20 +60,25 @@ enum Operations {
 */
 int main()
 {
+    printf("Enter operations %d - Sum, %d - Difference, %d - Product, %d - QuotientA, %d - QuatientB: ", Sum, Difference, Product, QuotientA, QuotientB);
+    int operation = getInt();
+    CheckOpiration(operation);
 	double a = GetValue();
 	double b = GetValue();
-    enum Operations num = GetInt();
-    switch (num) {
-        case 1:
+    switch (operation) {
+        case Sum:
         printf("a + b = %.2lf\n", SumOfNumbers(a, b));
         break;
-        case 2:
+        case Difference:
         printf("a - b = %.2lf\n", DifferenceOfNumbers(a, b));
         break;
-        case 3:
+        case Product:
         printf("a * b = %.2lf\n", ProductOfNumbers(a, b));
         break;
-        case 4:
+        case QuotientA:
+        printf("a / b = %.2lf", QuotientOfNumbers(a, b));
+        break;
+        case QuotientB:
         printf("b / a = %.2lf", QuotientOfNumbers(b, a));
         break;
     }
@@ -103,4 +115,29 @@ double ProductOfNumbers(const double a, const double b)
 double QuotientOfNumbers(const double a, const double b)
 {
 	return (a / b);
+}
+
+double getInt()
+{
+    int value = 0;
+    if (scanf("%d",&value) != 1)
+        {
+            printf("Error");
+            exit(1);
+        }
+    return value;
+}
+
+void CheckOpiration(const int operation)
+{
+    if (operation < 1)
+    {
+        printf("Error, there is no such operation.\n");
+        exit(1);
+    }
+    if (operation > 5)
+    {
+        printf("Error, there is no such operation.\n");
+        exit(1);
+    }
 }
