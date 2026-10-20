@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <float.h>
 
 /*
 * @brief считывает введённое значение и проверяет его на корректность
@@ -47,7 +48,9 @@ double QuotientOfNumbers(const double a, const double b);
 int getInt();
 
 
-
+/*
+* @brief Sum - сумма чисел, Difference - разность чисел, Product - произведение чисел, Quotient - частное от деления чиел
+*/
 enum Operations {
     Sum = 1,
     Difference, 
@@ -79,6 +82,9 @@ int main()
         break;
         case Quotient:
         printf("a / b = %.2lf", QuotientOfNumbers(a, b));
+        break;
+        default:
+        printf("There is no operation with that number\n");
         break;
     }
 	return 0;
@@ -113,7 +119,15 @@ double ProductOfNumbers(const double a, const double b)
 
 double QuotientOfNumbers(const double a, const double b)
 {
-	return (a / b);
+    if (fabs(b) > DBL_EPSILON)
+        {
+	        return (a / b);
+        }
+    else
+        {
+            printf("Error, division by zero\n");
+            exit(1);
+        }
 }
 
 int getInt()
