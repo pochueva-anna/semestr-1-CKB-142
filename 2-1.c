@@ -85,7 +85,7 @@ int main()
         break;
         default:
         printf("There is no operation with that number\n");
-        break;
+        return 1;
     }
 	return 0;
 }
