@@ -12,23 +12,27 @@ double getValue();
 
 /*
 * @brief проверяет, что шаг больше нуля
+* @param step - величина шага
 */
 void checkStep(const double step);
 
 /*
 * @brief проверяет, что начальное число меньше конечного
+* @param xbegin - начало интервала, xend - конец интервала
 */
 void checkSegment(const double xbegin,const double xend);
 
 /*
 * @brief проверяет, что x попадает в область допустимых значений
 * @return 1, если значение попадает в одз, 0 если нет
+* @param x - значение из интервала
 */
 bool isOOF(const double x);
 
 /*
-* @brief высчитывает значение y по заданной формуле и введенному x
+* @brief высчитывает значение y по заданной формуле
 * @return значение y
+* @param x - значение из интервала
 */
 double getY(const double x);
 
